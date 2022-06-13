@@ -1,0 +1,25 @@
+steps:
+  # Build image
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-t",
+        "gcr.io/exemplary-cycle-352007/nexthotel-flaskapp:$COMMIT_SHA",
+        ".",
+      ]
+  # Push to cloud container registry
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      ["push", "gcr.io/exemplary-cycle-352007/nexthotel-flaskapp:$COMMIT_SHA"]
+
+  # gcloud run deploy --nama_cloud_run --region --image
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "run",
+        "deploy",
+        "nexthotel-flaskapp",
+        "--region=asia-southeast1",
+        "--image=gcr.io/exemplary-cycle-352007/nexthotel-flaskapp:$COMMIT_SHA",
+      ]
