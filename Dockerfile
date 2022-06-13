@@ -15,7 +15,7 @@ RUN pip install -r requirements.txt
 COPY . /app/
 
 # expore container port
-EXPOSE 8000
+EXPOSE 8080
 
 # run service
-CMD exec gunicorn --bind 0.0.0.0:8000 --workers 1 --threads 8 --timeout 0 app:app
+CMD exec gunicorn --bind 0.0.0.0:8080 --workers 1 --threads 8 --timeout 0 app:app
