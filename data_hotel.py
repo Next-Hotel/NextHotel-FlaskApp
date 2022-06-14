@@ -7,6 +7,6 @@ def load_data(data):
 	return df 
 
 def get_list_hotel():
-    df = load_data("list-hotel/list-hotels.csv")
+    df = load_data("list-hotel/Data API.csv")
     results_json = df.to_json(orient ='table')
     return(results_json)
