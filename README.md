@@ -25,7 +25,7 @@ cd NextHotel-FlaskApp/
 3. Install virtual enviroment
 
 ```
-python3 -m venv venv
+python -m venv venv
 ```
 
 4. Activate the environment
