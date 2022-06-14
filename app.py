@@ -7,6 +7,9 @@ app = Flask(__name__)
 
 CORS(app) 
 
+@app.route("/")
+def start_service():
+    return "<p>service started! v1</p>"
 
 @app.route('/api/list-hotel', methods=['GET'])
 def list_hotel(): 
