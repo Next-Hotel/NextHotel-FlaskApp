@@ -45,3 +45,9 @@ pip install -r requirements.txt
 ```
 flask run
 ```
+
+7. For deactivate the venv
+
+```
+deactivate
+```
