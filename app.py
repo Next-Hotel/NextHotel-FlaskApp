@@ -23,7 +23,7 @@ def list_hotel():
 @app.route('/api/rekomendasi-hotel', methods=['POST'])
 def rekomendasi_hotel(): 
         # res = file_model.function_model(request json yg diinput)
-        res = model_rekomendasi.model_rekomendasi(request.json)
+        res = model_rekomendasi.get_weight(request.json)
         
         # return data dalam bentuk json
-        return jsonify(res)
+        return "ok"
