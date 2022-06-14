@@ -31,7 +31,7 @@ python -m venv venv
 4. Activate the environment
 
 ```
-venv/bin/activate
+venv/Scripts/Activate.ps1
 ```
 
 5. Install the piplist form requirements.txt
