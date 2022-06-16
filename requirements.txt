@@ -5,3 +5,9 @@ watchdog==2.1.6
 Werkzeug==2.0.2
 python-dotenv
 gunicorn
+numpy
+matplotlib
+seaborn
+sklearn
+tensorflow
+json
