@@ -111,7 +111,8 @@ def rekomendasi_hotel(data):
                 weights.append(new_sorted['{}'.format(test.iat[i])])
             break
         for i in range(len(test)):
-            weights[i] = weights[i] * 2
+            weights[i] = weights[i] / new_sorted['{}'.format(test.iat[i])].max()
+            # weights[i] = weights[i] * 2
         
         df_test = df[test]
         df_test['predict_score'] = new_sorted['predict_score']
