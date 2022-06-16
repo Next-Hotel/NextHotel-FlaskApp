@@ -10,4 +10,3 @@ matplotlib
 seaborn
 sklearn
 tensorflow
-json
