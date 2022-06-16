@@ -13,7 +13,6 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras import regularizers
 
-
 def rekomendasi_hotel(data): 
         output_dataset = pd.read_csv("https://storage.googleapis.com/data-hotel/list-hotel/output_dataset.csv", encoding='unicode_escape')
         df = pd.read_csv("https://storage.googleapis.com/data-hotel/list-hotel/data_preprocessing.csv", encoding='unicode_escape')
@@ -44,7 +43,6 @@ def rekomendasi_hotel(data):
 
         optimizer = tf.optimizers.Adam(learning_rate=lr)
             
-
         def scale_model(norm):
               model = keras.Sequential([
               norm,
@@ -77,7 +75,7 @@ def rekomendasi_hotel(data):
                       train_labels,
                       validation_split=0.2,
                       callbacks = tf.keras.callbacks.LearningRateScheduler(scheduler),
-                      verbose=0, epochs=350)
+                      verbose=0, epochs=300)
             
             hist = pd.DataFrame(history.history)
             hist['epoch'] = history.epoch
@@ -104,7 +102,7 @@ def rekomendasi_hotel(data):
 
         print(new_sorted)
 
-        # Inpur Parameter
+        # Input Parameter
         test = pd.read_json(json.dumps(data))
         test = test['interest']
         weights = []
@@ -120,8 +118,8 @@ def rekomendasi_hotel(data):
         df_test = df_test[:70]
         df_test['final_score'] = df_test.sum(axis=1)
 
-
         output_dataset['final_score'] = df_test['final_score']
         output_dataset = output_dataset.sort_values(by=['final_score'], ascending=False)
+
         # return data dalam bentuk json
         return output_dataset.to_json(orient ='table')
